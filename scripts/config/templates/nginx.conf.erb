@@ -82,11 +82,6 @@ http {
         add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
       }
 
-      # need this b/c setting $fallback to =404 will try #{root}=404 instead of returning a 404
-      location @404 {
-        return 404;
-      }
-
     <% if clean_urls %>
       try_files $uri.html $uri $uri/ $fallback;
     <% else %>
